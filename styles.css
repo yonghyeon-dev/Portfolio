@@ -430,6 +430,36 @@ section {
   line-height: 1.6;
 }
 
+.project-description-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.project-description .more-text {
+  display: none;
+}
+.project-description.expanded .more-text {
+  display: inline;
+}
+.project-description.expanded .ellipsis {
+  display: none;
+}
+.project-description .toggle-desc-btn {
+  display: inline;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-left: 0.25em;
+  padding: 0;
+  vertical-align: baseline;
+  transition: color 0.2s;
+}
+.project-description .toggle-desc-btn:hover {
+  color: var(--primary-dark);
+}
+
 .project-tech {
   display: flex;
   flex-wrap: wrap;
