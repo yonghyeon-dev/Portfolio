@@ -288,8 +288,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var desc = wrapper.querySelector(".project-description");
       var openBtn = wrapper.querySelector(".toggle-desc-btn:not(.close)");
       var closeBtn = wrapper.querySelector(".toggle-desc-btn.close");
-      // 더보기 버튼이 필요한지(ellipsis, more-text 존재 여부) 확인
-      if (!desc.querySelector(".more-text")) {
+      var moreText = desc.querySelector(".more-text");
+      if (!moreText || !moreText.textContent.trim()) {
         if (openBtn) openBtn.style.display = "none";
         if (closeBtn) closeBtn.style.display = "none";
         return;

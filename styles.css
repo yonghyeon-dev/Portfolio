@@ -433,6 +433,7 @@ section {
 .project-description-wrapper {
   position: relative;
   margin-bottom: 1.5rem;
+  min-height: 120px;
 }
 .project-description .more-text {
   display: none;
@@ -732,13 +733,10 @@ html {
 }
 
 .project-description.short {
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: block;
+  overflow: visible;
+  text-overflow: initial;
   word-break: break-word;
-  max-height: 8.5em;
 }
 @media (max-width: 768px) {
   .project-description.short {
