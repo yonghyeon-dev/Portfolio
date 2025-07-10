@@ -460,6 +460,29 @@ section {
   color: var(--primary-dark);
 }
 
+.project-description .toggle-desc-btn.close {
+  margin-left: 1.5em;
+  margin-right: 0;
+  margin-top: 0;
+  align-self: flex-end;
+  float: none;
+}
+.project-description .toggle-desc-btn.close:hover {
+  color: var(--primary-dark);
+}
+
+.project-description.expanded .toggle-desc-btn:not(.close) {
+  display: none;
+}
+
+.project-description.expanded {
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  max-height: none !important;
+  overflow: visible !important;
+  text-overflow: initial !important;
+}
+
 .project-tech {
   display: flex;
   flex-wrap: wrap;
@@ -706,4 +729,20 @@ html {
 .about-content,
 .contact-content {
   animation: fadeInUp 0.6s ease-out;
+}
+
+.project-description.short {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  max-height: 8.5em;
+}
+@media (max-width: 768px) {
+  .project-description.short {
+    -webkit-line-clamp: 7;
+    max-height: 12em;
+  }
 }

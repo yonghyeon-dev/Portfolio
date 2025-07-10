@@ -282,26 +282,31 @@ revealStyle.textContent = `
 document.head.appendChild(revealStyle);
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".toggle-desc-btn").forEach(function (toggleBtn) {
-    var desc = toggleBtn
-      .closest(".project-description-wrapper")
-      .querySelector(".project-description");
-    // 더보기 버튼이 필요한지(ellipsis, more-text 존재 여부) 확인
-    if (!desc.querySelector(".more-text")) {
-      toggleBtn.style.display = "none";
-      return;
-    }
-    if (toggleBtn && desc) {
-      toggleBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        desc.classList.toggle("expanded");
-        if (desc.classList.contains("expanded")) {
-          toggleBtn.textContent = "접기";
-        } else {
-          toggleBtn.textContent = "더보기";
-        }
-      });
-    }
-  });
+  document
+    .querySelectorAll(".project-description-wrapper")
+    .forEach(function (wrapper) {
+      var desc = wrapper.querySelector(".project-description");
+      var openBtn = wrapper.querySelector(".toggle-desc-btn:not(.close)");
+      var closeBtn = wrapper.querySelector(".toggle-desc-btn.close");
+      // 더보기 버튼이 필요한지(ellipsis, more-text 존재 여부) 확인
+      if (!desc.querySelector(".more-text")) {
+        if (openBtn) openBtn.style.display = "none";
+        if (closeBtn) closeBtn.style.display = "none";
+        return;
+      }
+      if (openBtn) {
+        openBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          desc.classList.add("expanded");
+        });
+      }
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          desc.classList.remove("expanded");
+        });
+      }
+    });
 });
