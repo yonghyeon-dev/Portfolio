@@ -88,9 +88,20 @@ if (contactForm) {
       return;
     }
 
-    // Here you would typically send the form data to a server
-    // For now, we'll just show a success message
-    alert("메시지가 성공적으로 전송되었습니다!");
+    // Create email content
+    const subject = `포트폴리오 문의 - ${name}님으로부터`;
+    const body = `이름: ${name}\n이메일: ${email}\n\n메시지:\n${message}`;
+
+    // Create mailto link
+    const mailtoLink = `mailto:kryou1@naver.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    // Open default email client
+    window.location.href = mailtoLink;
+
+    // Show success message
+    alert("이메일 클라이언트가 열렸습니다. 메시지를 확인하고 전송해주세요!");
     this.reset();
   });
 }
